@@ -1,6 +1,14 @@
 
 import propTypes from 'prop-types';
-
+import {
+  ProfileBox,
+  ProfileDescription,
+  ProfileImage,
+  ProfileText,
+  ProfileList,
+  ProfileListText,
+  ProfileListItem,
+} from './Profile.styled';
 
 const Profile = ({
   username,
@@ -10,29 +18,29 @@ const Profile = ({
   stats: { followers, views, likes },
 }) => {
   return (
-    <div className="profile">
-      <div className="description">
-        <img src={avatar} alt="User avatar" className="avatar" />
-        <p className="name">{username}</p>
-        <p className="tag">@{tag}</p>
-        <p className="location">{location}</p>
-      </div>
+    <ProfileBox>
+      <ProfileDescription>
+        <ProfileImage src={avatar} alt="User avatar"  />
+        <ProfileText>{username}</ProfileText>
+        <ProfileText>@{tag}</ProfileText>
+        <ProfileText>{location}</ProfileText>
+      </ProfileDescription>
 
-      <ul className="stats">
-        <li>
-          <span className="label">Followers</span>
-          <span className="quantity">{followers}</span>
-        </li>
-        <li>
-          <span className="label">Views</span>
-          <span className="quantity">{views}</span>
-        </li>
-        <li>
-          <span className="label">Likes</span>
-          <span className="quantity">{likes}</span>
-        </li>
-      </ul>
-    </div>
+      <ProfileList>
+        <ProfileListItem>
+          <ProfileListText>Followers</ProfileListText>
+          <ProfileListText>{followers}</ProfileListText>
+        </ProfileListItem>
+        <ProfileListItem>
+          <ProfileListText>Views</ProfileListText>
+          <ProfileListText>{views}</ProfileListText>
+        </ProfileListItem>
+        <ProfileListItem>
+          <ProfileListText>Likes</ProfileListText>
+          <ProfileListText>{likes}</ProfileListText>
+        </ProfileListItem>
+      </ProfileList>
+    </ProfileBox>
   );
 };
 
